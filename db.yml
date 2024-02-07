@@ -2,9 +2,6 @@
 - name: Install MySQL on Ubuntu 22.04
   hosts: db
   become: yes
-  vars:
-    mysql_root_password: "secureRootPassword1234"
-    mysql_version: "8.0"
 
   tasks:
     - name: Update apt cache
@@ -14,8 +11,8 @@
 
     - name: Install MySQL Server
       ansible.builtin.apt:
-        name: mysql-server
-        state: present
+        name: "mysql-server={{ mysql_version }}"
+        state: "{{ mysql_state }}"
 
     - name: Secure Installation of MySQL
       block:
@@ -23,7 +20,7 @@
           ansible.builtin.service:
             name: mysql
             state: started
-            enabled: yes
+            enabled: "{{ mysql_enable }}"
 
   handlers:
     - name: restart mysql
