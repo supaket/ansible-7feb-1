@@ -1,0 +1,14 @@
+---
+- name: Install Nginx on Ubuntu
+  hosts: web
+  become: yes
+  tasks:
+    - name: Update APT package cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+

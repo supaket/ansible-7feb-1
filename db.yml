@@ -1,0 +1,33 @@
+---
+- name: Install MySQL on Ubuntu 22.04
+  hosts: db
+  become: yes
+  vars:
+    mysql_root_password: "secureRootPassword1234"
+    mysql_version: "8.0"
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install MySQL Server
+      ansible.builtin.apt:
+        name: mysql-server
+        state: present
+
+    - name: Secure Installation of MySQL
+      block:
+        - name: Ensure MySQL service is running
+          ansible.builtin.service:
+            name: mysql
+            state: started
+            enabled: yes
+
+  handlers:
+    - name: restart mysql
+      ansible.builtin.service:
+        name: mysql
+        state: restarted
+
