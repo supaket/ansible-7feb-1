@@ -1,0 +1,42 @@
+---
+
+- name: Getharing Machine Info export to file
+  hosts: all
+  gather_facts: yes
+  
+  vars:
+    filename: "machine_info_report_{{ date }}.csv"
+
+  tasks:
+  - name: raw result of running date command
+    ansible.builtin.debug:
+      msg: "{{ lookup('ansible.builtin.pipe', 'date') }}"
+
+  - name: Get file name 
+    set_fact: date="{{ lookup('pipe','date +%Y%m%d') }}"
+    run_once: true
+
+  - name: Create CSV report
+    ansible.builtin.lineinfile: 
+      dest: "/home/vagrant/{{ filename }}"
+      line:
+        hostname,ip
+      create: yes 
+      state: present
+
+  - name: Get Facts
+    set_fact:
+      csv_var: >
+        {{ ansible_hostname }},{{ ansible_eth1.ipv4.address }}
+  
+  - name: Write facts report
+    lineinfile:
+     insertafter: EOF
+     dest: "/home/vagrant/{{ filename }}"
+     line: " {{ csv_var }}"
+
+  - name: Remove Blank line
+    lineinfile:
+      dest: "/home/vagrant/{{ filename }}"
+      regex: '^\s*$'
+      state: absent
