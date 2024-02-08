@@ -18,7 +18,7 @@
       block:
         - name: Ensure MySQL service is running
           ansible.builtin.service:
-            name: mysql
+            name: "mysql-{{ inventory_dir }}"
             state: started
             enabled: "{{ mysql_enable }}"
 

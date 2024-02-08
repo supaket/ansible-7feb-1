@@ -1,0 +1,7 @@
+---
+- name: ensure webserver nginx
+  hosts: web
+  become: yes
+  roles:
+    - nginx
+    - firewall

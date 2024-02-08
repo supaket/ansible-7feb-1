@@ -1,0 +1,7 @@
+[web]
+web1 10.0.x.1 ansible_*=xxxx
+web2 10.0.x.2
+
+[db]
+db1 10.0.y.1
+

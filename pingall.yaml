@@ -1,0 +1,6 @@
+---
+- name: Test Connectivity with Dynamic Inventory
+  hosts: all
+  tasks:
+    - name: Ping all hosts
+      ansible.builtin.ping:
