@@ -1,7 +1,7 @@
 ---
 
 - name: Getharing Machine Info export to file
-  hosts: all
+  hosts: web
   gather_facts: yes
   
   vars:

@@ -7271,3 +7271,401 @@ you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/5
 2024-02-08 07:52:07,453 p=63542 u=vagrant n=ansible | PLAY RECAP *****************************************************************************************************************
 2024-02-08 07:52:07,453 p=63542 u=vagrant n=ansible | 192.168.201.5              : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2024-02-08 07:52:07,454 p=63542 u=vagrant n=ansible | 192.168.201.6              : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-02-08 07:59:45,572 p=63845 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the
+next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for
+you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 07:59:46,222 p=63845 u=vagrant n=ansible | PLAY [Getharing Machine Info export to file] *******************************************************************************
+2024-02-08 07:59:46,227 p=63845 u=vagrant n=ansible | TASK [Gathering Facts] *****************************************************************************************************
+2024-02-08 07:59:47,744 p=63845 u=vagrant n=ansible | ok: [192.168.201.5]
+2024-02-08 08:00:02,943 p=63845 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:00:03,006 p=63845 u=vagrant n=ansible | TASK [raw result of running date command] **********************************************************************************
+2024-02-08 08:00:03,085 p=63845 u=vagrant n=ansible | ok: [192.168.201.6] => {
+    "msg": "Thu Feb  8 08:00:03 UTC 2024"
+}
+2024-02-08 08:00:03,093 p=63845 u=vagrant n=ansible | ok: [192.168.201.5] => {
+    "msg": "Thu Feb  8 08:00:03 UTC 2024"
+}
+2024-02-08 08:00:03,098 p=63845 u=vagrant n=ansible | TASK [Get file name] *******************************************************************************************************
+2024-02-08 08:00:03,114 p=63845 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:00:03,120 p=63845 u=vagrant n=ansible | TASK [Create CSV report] ***************************************************************************************************
+2024-02-08 08:00:03,527 p=63845 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:00:03,542 p=63845 u=vagrant n=ansible | ok: [192.168.201.5]
+2024-02-08 08:00:03,548 p=63845 u=vagrant n=ansible | TASK [Get Facts] ***********************************************************************************************************
+2024-02-08 08:00:03,615 p=63845 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:00:03,622 p=63845 u=vagrant n=ansible | ok: [192.168.201.5]
+2024-02-08 08:00:03,628 p=63845 u=vagrant n=ansible | TASK [Write facts report] **************************************************************************************************
+2024-02-08 08:00:03,882 p=63845 u=vagrant n=ansible | changed: [192.168.201.6]
+2024-02-08 08:00:03,898 p=63845 u=vagrant n=ansible | changed: [192.168.201.5]
+2024-02-08 08:00:03,903 p=63845 u=vagrant n=ansible | TASK [Remove Blank line] ***************************************************************************************************
+2024-02-08 08:00:04,160 p=63845 u=vagrant n=ansible | changed: [192.168.201.6]
+2024-02-08 08:00:04,181 p=63845 u=vagrant n=ansible | changed: [192.168.201.5]
+2024-02-08 08:00:04,211 p=63845 u=vagrant n=ansible | PLAY RECAP *****************************************************************************************************************
+2024-02-08 08:00:04,211 p=63845 u=vagrant n=ansible | 192.168.201.5              : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:00:04,211 p=63845 u=vagrant n=ansible | 192.168.201.6              : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:01:10,450 p=64125 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the
+next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for
+you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:01:11,103 p=64125 u=vagrant n=ansible | PLAY [Getharing Machine Info export to file] *******************************************************************************
+2024-02-08 08:01:11,108 p=64125 u=vagrant n=ansible | TASK [Gathering Facts] *****************************************************************************************************
+2024-02-08 08:01:27,725 p=64125 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:01:27,753 p=64125 u=vagrant n=ansible | TASK [raw result of running date command] **********************************************************************************
+2024-02-08 08:01:27,817 p=64125 u=vagrant n=ansible | ok: [192.168.201.6] => {
+    "msg": "Thu Feb  8 08:01:27 UTC 2024"
+}
+2024-02-08 08:01:27,823 p=64125 u=vagrant n=ansible | TASK [Get file name] *******************************************************************************************************
+2024-02-08 08:01:27,838 p=64125 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:01:27,844 p=64125 u=vagrant n=ansible | TASK [Create CSV report] ***************************************************************************************************
+2024-02-08 08:01:28,128 p=64125 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:01:28,134 p=64125 u=vagrant n=ansible | TASK [Get Facts] ***********************************************************************************************************
+2024-02-08 08:01:28,147 p=64125 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:01:28,153 p=64125 u=vagrant n=ansible | TASK [Write facts report] **************************************************************************************************
+2024-02-08 08:01:28,348 p=64125 u=vagrant n=ansible | changed: [192.168.201.6]
+2024-02-08 08:01:28,353 p=64125 u=vagrant n=ansible | TASK [Remove Blank line] ***************************************************************************************************
+2024-02-08 08:01:28,540 p=64125 u=vagrant n=ansible | changed: [192.168.201.6]
+2024-02-08 08:01:28,556 p=64125 u=vagrant n=ansible | PLAY RECAP *****************************************************************************************************************
+2024-02-08 08:01:28,556 p=64125 u=vagrant n=ansible | 192.168.201.6              : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:08:58,454 p=64236 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the
+next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for
+you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:08:59,099 p=64236 u=vagrant n=ansible | PLAY [Getharing Machine Info export to file] *******************************************************************************
+2024-02-08 08:08:59,104 p=64236 u=vagrant n=ansible | TASK [Gathering Facts] *****************************************************************************************************
+2024-02-08 08:08:59,147 p=64236 u=vagrant n=ansible | fatal: [192.168.201.6]: FAILED! => {"msg": "Unable to automatically determine host network os. Please manually configure ansible_network_os value for this host"}
+2024-02-08 08:08:59,149 p=64236 u=vagrant n=ansible | PLAY RECAP *****************************************************************************************************************
+2024-02-08 08:08:59,149 p=64236 u=vagrant n=ansible | 192.168.201.6              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:09:31,923 p=64247 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the
+next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for
+you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:09:32,554 p=64247 u=vagrant n=ansible | PLAY [Getharing Machine Info export to file] *******************************************************************************
+2024-02-08 08:09:32,558 p=64247 u=vagrant n=ansible | TASK [Gathering Facts] *****************************************************************************************************
+2024-02-08 08:09:49,567 p=64247 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:09:49,644 p=64247 u=vagrant n=ansible | TASK [raw result of running date command] **********************************************************************************
+2024-02-08 08:09:49,692 p=64247 u=vagrant n=ansible | ok: [192.168.201.6] => {
+    "msg": "Thu Feb  8 08:09:49 UTC 2024"
+}
+2024-02-08 08:09:49,698 p=64247 u=vagrant n=ansible | TASK [Get file name] *******************************************************************************************************
+2024-02-08 08:09:49,715 p=64247 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:09:49,720 p=64247 u=vagrant n=ansible | TASK [Create CSV report] ***************************************************************************************************
+2024-02-08 08:09:50,022 p=64247 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:09:50,028 p=64247 u=vagrant n=ansible | TASK [Get Facts] ***********************************************************************************************************
+2024-02-08 08:09:50,041 p=64247 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:09:50,046 p=64247 u=vagrant n=ansible | TASK [Write facts report] **************************************************************************************************
+2024-02-08 08:09:50,249 p=64247 u=vagrant n=ansible | changed: [192.168.201.6]
+2024-02-08 08:09:50,255 p=64247 u=vagrant n=ansible | TASK [Remove Blank line] ***************************************************************************************************
+2024-02-08 08:09:50,451 p=64247 u=vagrant n=ansible | changed: [192.168.201.6]
+2024-02-08 08:09:50,468 p=64247 u=vagrant n=ansible | PLAY RECAP *****************************************************************************************************************
+2024-02-08 08:09:50,469 p=64247 u=vagrant n=ansible | 192.168.201.6              : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:28:12,904 p=64338 u=vagrant n=ansible | ERROR! Decryption failed (no vault secrets were found that could decrypt) on secret.yaml for secret.yaml
+2024-02-08 08:28:16,920 p=64340 u=vagrant n=ansible | ERROR! Decryption failed (no vault secrets were found that could decrypt) on secret.yaml for secret.yaml
+2024-02-08 08:30:15,864 p=64349 u=vagrant n=ansible | [WARNING]: Error in vault password prompt (mysql_pass): Passwords do not match
+
+2024-02-08 08:30:15,864 p=64349 u=vagrant n=ansible | ERROR! Passwords do not match
+2024-02-08 08:30:20,280 p=64353 u=vagrant n=ansible | ERROR! ansible-vault create can take only one filename argument
+2024-02-08 08:30:31,531 p=64355 u=vagrant n=ansible | ERROR! secret.yaml exists, please use 'edit' instead
+2024-02-08 08:31:45,776 p=64358 u=vagrant n=ansible | Encryption successful
+2024-02-08 08:32:27,797 p=64360 u=vagrant n=ansible | Encryption successful
+2024-02-08 08:33:44,689 p=64367 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next
+major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:33:45,335 p=64367 u=vagrant n=ansible | PLAY [Install Nginx on Ubuntu] ****************************************************************************************************
+2024-02-08 08:33:45,341 p=64367 u=vagrant n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-02-08 08:33:45,493 p=64367 u=vagrant n=ansible | fatal: [192.168.201.6]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: vagrant@192.168.201.6: Permission denied (publickey,password).", "unreachable": true}
+2024-02-08 08:33:45,495 p=64367 u=vagrant n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-02-08 08:33:45,495 p=64367 u=vagrant n=ansible | 192.168.201.6              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:34:27,302 p=64379 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next
+major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:34:27,960 p=64379 u=vagrant n=ansible | PLAY [Install Nginx on Ubuntu] ****************************************************************************************************
+2024-02-08 08:34:27,966 p=64379 u=vagrant n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-02-08 08:34:40,886 p=64379 u=vagrant n=ansible | fatal: [192.168.201.6]: FAILED! => {"msg": "Timeout (12s) waiting for privilege escalation prompt: "}
+2024-02-08 08:34:40,895 p=64379 u=vagrant n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-02-08 08:34:40,895 p=64379 u=vagrant n=ansible | 192.168.201.6              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:35:08,019 p=64405 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next
+major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:35:08,715 p=64405 u=vagrant n=ansible | PLAY [Install Nginx on Ubuntu] ****************************************************************************************************
+2024-02-08 08:35:08,721 p=64405 u=vagrant n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-02-08 08:35:40,042 p=64405 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:35:40,078 p=64405 u=vagrant n=ansible | TASK [Update APT package cache] ***************************************************************************************************
+2024-02-08 08:35:49,739 p=64405 u=vagrant n=ansible |  [ERROR]: User interrupted execution
+
+2024-02-08 08:47:06,905 p=64445 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next
+major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:47:07,542 p=64445 u=vagrant n=ansible | PLAY [Install Nginx on Ubuntu] *************************************************************************************************
+2024-02-08 08:47:07,548 p=64445 u=vagrant n=ansible | TASK [Gathering Facts] *********************************************************************************************************
+2024-02-08 08:47:39,463 p=64445 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:47:39,488 p=64445 u=vagrant n=ansible | TASK [Install Nginx] ***********************************************************************************************************
+2024-02-08 08:47:39,514 p=64445 u=vagrant n=ansible | fatal: [192.168.201.6]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'mysql_pass' is undefined. 'mysql_pass' is undefined\n\nThe error appears to be in '/home/vagrant/webserver.yml': line 6, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Install Nginx\n      ^ here\n"}
+2024-02-08 08:47:39,517 p=64445 u=vagrant n=ansible | PLAY RECAP *********************************************************************************************************************
+2024-02-08 08:47:39,517 p=64445 u=vagrant n=ansible | 192.168.201.6              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:48:36,997 p=64476 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next
+major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:48:37,612 p=64476 u=vagrant n=ansible | PLAY [Install Nginx on Ubuntu] *************************************************************************************************
+2024-02-08 08:48:37,618 p=64476 u=vagrant n=ansible | TASK [Gathering Facts] *********************************************************************************************************
+2024-02-08 08:49:08,904 p=64476 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:49:08,929 p=64476 u=vagrant n=ansible | TASK [Install Nginx] ***********************************************************************************************************
+2024-02-08 08:49:08,970 p=64476 u=vagrant n=ansible | fatal: [192.168.201.6]: FAILED! => {"msg": "Attempting to decrypt but no vault secrets found"}
+2024-02-08 08:49:08,973 p=64476 u=vagrant n=ansible | PLAY RECAP *********************************************************************************************************************
+2024-02-08 08:49:08,973 p=64476 u=vagrant n=ansible | 192.168.201.6              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:49:44,558 p=64497 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next
+major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:49:45,194 p=64497 u=vagrant n=ansible | PLAY [Install Nginx on Ubuntu] *************************************************************************************************
+2024-02-08 08:49:45,201 p=64497 u=vagrant n=ansible | TASK [Gathering Facts] *********************************************************************************************************
+2024-02-08 08:50:21,610 p=64497 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:50:21,630 p=64497 u=vagrant n=ansible | TASK [Install Nginx] ***********************************************************************************************************
+2024-02-08 08:50:37,840 p=64497 u=vagrant n=ansible | fatal: [192.168.201.6]: FAILED! => {"cache_update_time": 1688158255, "cache_updated": false, "changed": false, "msg": "no available installation candidate for nginx=password1234"}
+2024-02-08 08:50:37,848 p=64497 u=vagrant n=ansible | PLAY RECAP *********************************************************************************************************************
+2024-02-08 08:50:37,848 p=64497 u=vagrant n=ansible | 192.168.201.6              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:53:27,524 p=64529 u=vagrant n=ansible | [WARNING]: Error in vault password prompt (nginx_version): Passwords do not match
+
+2024-02-08 08:53:27,524 p=64529 u=vagrant n=ansible | ERROR! Passwords do not match
+2024-02-08 08:53:32,359 p=64531 u=vagrant n=ansible | ERROR! secret.yaml exists, please use 'edit' instead
+2024-02-08 08:54:42,812 p=64539 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next
+major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:54:43,462 p=64539 u=vagrant n=ansible | ERROR! variable files must contain either a dictionary of variables, or a list of dictionaries. Got: db_password=password12346 nginx_version=1234 (<class 'ansible.parsing.yaml.objects.AnsibleUnicode'>)
+2024-02-08 08:55:46,791 p=64554 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next
+major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:55:47,517 p=64554 u=vagrant n=ansible | PLAY [Install Nginx on Ubuntu] *************************************************************************************************
+2024-02-08 08:55:47,531 p=64554 u=vagrant n=ansible | TASK [Gathering Facts] *********************************************************************************************************
+2024-02-08 08:56:19,476 p=64554 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:56:19,558 p=64554 u=vagrant n=ansible | TASK [Install Nginx] ***********************************************************************************************************
+2024-02-08 08:56:19,572 p=64554 u=vagrant n=ansible | fatal: [192.168.201.6]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'nginx_versio' is undefined. 'nginx_versio' is undefined\n\nThe error appears to be in '/home/vagrant/webserver.yml': line 7, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: Install Nginx\n      ^ here\n"}
+2024-02-08 08:56:19,573 p=64554 u=vagrant n=ansible | PLAY RECAP *********************************************************************************************************************
+2024-02-08 08:56:19,574 p=64554 u=vagrant n=ansible | 192.168.201.6              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-08 08:56:34,191 p=64579 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next
+major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better
+interoperability with other libraries) but was not found to be installed on your system. If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 08:56:34,875 p=64579 u=vagrant n=ansible | PLAY [Install Nginx on Ubuntu] *************************************************************************************************
+2024-02-08 08:56:34,889 p=64579 u=vagrant n=ansible | TASK [Gathering Facts] *********************************************************************************************************
+2024-02-08 08:57:06,267 p=64579 u=vagrant n=ansible | ok: [192.168.201.6]
+2024-02-08 08:57:06,354 p=64579 u=vagrant n=ansible | TASK [Install Nginx] ***********************************************************************************************************
+2024-02-08 08:57:22,250 p=64579 u=vagrant n=ansible | fatal: [192.168.201.6]: FAILED! => {"cache_update_time": 1688158255, "cache_updated": false, "changed": false, "msg": "no available installation candidate for nginx=1234"}
+2024-02-08 08:57:22,259 p=64579 u=vagrant n=ansible | PLAY RECAP *********************************************************************************************************************
+2024-02-08 08:57:22,260 p=64579 u=vagrant n=ansible | 192.168.201.6              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-08 09:18:49,174 p=64810 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:18:49,178 p=64810 u=vagrant n=ansible | [WARNING]:  * Failed to parse /home/vagrant/machine_list.py with script plugin: You defined a group 'web' with bad
+data for variables:  {'hosts': ['192.168.201.6'], 'vars': [{'ansible_ssh_user': 'vagrant', 'ansible_ssh_password':
+'vagrant', 'ansible_user': 'vagrant', 'ansible_sudo': 'yes'}]}
+
+2024-02-08 09:18:49,178 p=64810 u=vagrant n=ansible | [WARNING]: Unable to parse /home/vagrant/machine_list.py as an inventory source
+
+2024-02-08 09:18:49,178 p=64810 u=vagrant n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-02-08 09:18:49,181 p=64810 u=vagrant n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match
+'all'
+
+2024-02-08 09:19:54,265 p=64818 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:19:55,815 p=64818 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:19:55,843 p=64818 u=vagrant n=ansible | 192.168.201.5 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:20:30,222 p=64990 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:20:31,238 p=64990 u=vagrant n=ansible | 192.168.201.5 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:20:31,278 p=64990 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:22:05,569 p=65070 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:22:06,998 p=65070 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:22:08,416 p=65070 u=vagrant n=ansible | 192.168.201.5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Invalid/incorrect password: Permission denied, please try again.",
+    "unreachable": true
+}
+2024-02-08 09:22:47,170 p=65109 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:22:48,356 p=65109 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:22:48,629 p=65109 u=vagrant n=ansible | 192.168.201.5 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:24:26,945 p=65223 u=vagrant n=ansible | Encryption successful
+2024-02-08 09:29:01,882 p=65301 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:29:03,332 p=65301 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:29:04,735 p=65301 u=vagrant n=ansible | 192.168.201.5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Invalid/incorrect password: Permission denied, please try again.",
+    "unreachable": true
+}
+2024-02-08 09:29:28,117 p=65339 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:29:29,218 p=65339 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:29:30,967 p=65339 u=vagrant n=ansible | 192.168.201.5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Invalid/incorrect password: Permission denied, please try again.",
+    "unreachable": true
+}
+2024-02-08 09:30:29,324 p=65443 u=vagrant n=ansible |  [ERROR]: User interrupted execution
+
+2024-02-08 09:30:41,800 p=65446 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:30:43,223 p=65446 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:30:44,652 p=65446 u=vagrant n=ansible | 192.168.201.5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Invalid/incorrect password: Permission denied, please try again.",
+    "unreachable": true
+}
+2024-02-08 09:43:14,370 p=65489 u=vagrant n=ansible |  [ERROR]: User interrupted execution
+
+2024-02-08 09:45:08,888 p=65499 u=vagrant n=ansible |  [ERROR]: User interrupted execution
+
+2024-02-08 09:45:22,298 p=65501 u=vagrant n=ansible | [WARNING]: Error in vault password prompt (default): Passwords do not match
+
+2024-02-08 09:45:22,305 p=65501 u=vagrant n=ansible | ERROR! Passwords do not match
+2024-02-08 09:45:26,345 p=65503 u=vagrant n=ansible | Encryption successful
+2024-02-08 09:46:35,282 p=65509 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:46:36,034 p=65509 u=vagrant n=ansible | 192.168.201.5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: vagrant@192.168.201.5: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2024-02-08 09:46:36,094 p=65509 u=vagrant n=ansible | 192.168.201.6 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: vagrant@192.168.201.6: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2024-02-08 09:49:15,660 p=65532 u=vagrant n=ansible | Encryption successful
+2024-02-08 09:49:44,103 p=65536 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in
+the next major release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type,
+and better interoperability with other libraries) but was not found to be installed on your system. If this would
+cause problems for you, please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+import pandas as pd
+
+2024-02-08 09:49:45,746 p=65536 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 09:49:45,754 p=65536 u=vagrant n=ansible | 192.168.201.5 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}

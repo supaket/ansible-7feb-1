@@ -11,11 +11,18 @@ def get_inventory():
     for index, row in df.iterrows():
         group = row['group']
         host = row['host']
+        user = row['user']
+        passwd = row['pass']
 
         if group not in inventory:
-            inventory[group] = {'hosts': []}
+            inventory[group] = {'hosts': [], 'vars': {}}
         
         inventory[group]['hosts'].append(host)
+        inventory[group]['vars'] = {
+            "ansible_ssh_user": user,
+            "ansible_user": user,
+            "ansible_sudo": "yes"
+        }
 
     print(json.dumps(inventory))
 
