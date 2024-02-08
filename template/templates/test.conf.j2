@@ -1,0 +1,14 @@
+color is {{ fav_color }}
+
+{# expression if condition #}
+{% if age > 18 %}
+vote center {{ voting_center }}
+{% else %}
+Can't vote.
+{% endif %}
+
+{# expression loop #}
+
+{% for fruit in fruits %} 
+- {{ fruit }}
+{% endfor %}

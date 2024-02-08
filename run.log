@@ -1,0 +1,355 @@
+2024-02-08 04:40:15,586 p=59076 u=vagrant n=ansible | ansible-playbook [core 2.15.9]
+  config file = /home/vagrant/ansible.cfg
+  configured module search path = ['/home/vagrant/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/vagrant/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] (/usr/bin/python3)
+  jinja version = 3.0.3
+  libyaml = True
+2024-02-08 04:40:15,586 p=59076 u=vagrant n=ansible | Using /home/vagrant/ansible.cfg as config file
+2024-02-08 04:40:15,586 p=59076 u=vagrant n=ansible | setting up inventory plugins
+2024-02-08 04:40:15,671 p=59076 u=vagrant n=ansible | Loading collection ansible.builtin from 
+2024-02-08 04:40:15,677 p=59076 u=vagrant n=ansible | host_list declined parsing /home/vagrant/inventory_dev as it did not pass its verify_file() method
+2024-02-08 04:40:15,677 p=59076 u=vagrant n=ansible | script declined parsing /home/vagrant/inventory_dev as it did not pass its verify_file() method
+2024-02-08 04:40:15,677 p=59076 u=vagrant n=ansible | auto declined parsing /home/vagrant/inventory_dev as it did not pass its verify_file() method
+2024-02-08 04:40:15,680 p=59076 u=vagrant n=ansible | Parsed /home/vagrant/inventory_dev inventory source with ini plugin
+2024-02-08 04:40:15,784 p=59076 u=vagrant n=ansible | Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+2024-02-08 04:40:15,790 p=59076 u=vagrant n=ansible | Attempting to use 'default' callback.
+2024-02-08 04:40:15,791 p=59076 u=vagrant n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2024-02-08 04:40:15,791 p=59076 u=vagrant n=ansible | Attempting to use 'junit' callback.
+2024-02-08 04:40:15,791 p=59076 u=vagrant n=ansible | Attempting to use 'minimal' callback.
+2024-02-08 04:40:15,791 p=59076 u=vagrant n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2024-02-08 04:40:15,791 p=59076 u=vagrant n=ansible | Attempting to use 'oneline' callback.
+2024-02-08 04:40:15,791 p=59076 u=vagrant n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2024-02-08 04:40:15,791 p=59076 u=vagrant n=ansible | Attempting to use 'tree' callback.
+2024-02-08 04:40:15,792 p=59076 u=vagrant n=ansible | PLAYBOOK: webserver.yml ********************************************************************************************************************************************
+2024-02-08 04:40:15,793 p=59076 u=vagrant n=ansible | 1 plays in webserver.yml
+2024-02-08 04:40:15,793 p=59076 u=vagrant n=ansible | PLAY [Install Nginx on Ubuntu] *************************************************************************************************************************************
+2024-02-08 04:40:15,800 p=59076 u=vagrant n=ansible | TASK [Gathering Facts] *********************************************************************************************************************************************
+2024-02-08 04:40:15,822 p=59076 u=vagrant n=ansible | <192.168.201.6> ESTABLISH SSH CONNECTION FOR USER: vagrant
+2024-02-08 04:40:15,822 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+2024-02-08 04:40:15,822 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_PRIVATE_KEY_FILE/private_key_file/ansible_ssh_private_key_file set: (-o)(IdentityFile="/home/vagrant/.private_key")
+2024-02-08 04:40:15,823 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible_password/ansible_ssh_password not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+2024-02-08 04:40:15,823 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User="vagrant")
+2024-02-08 04:40:15,823 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+2024-02-08 04:40:15,823 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_common_args: ()
+2024-02-08 04:40:15,824 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_extra_args: ()
+2024-02-08 04:40:15,824 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath="/home/vagrant/.ansible/cp/64d95e4092")
+2024-02-08 04:40:15,824 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/vagrant/.private_key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="vagrant"' -o ConnectTimeout=10 -o 'ControlPath="/home/vagrant/.ansible/cp/64d95e4092"' 192.168.201.6 '/bin/sh -c '"'"'echo ~vagrant && sleep 0'"'"''
+2024-02-08 04:40:17,371 p=59076 u=vagrant n=ansible | <192.168.201.6> (0, b'/home/vagrant\n', b'OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 192.168.201.6 is address\r\ndebug3: expanded UserKnownHostsFile \'~/.ssh/known_hosts\' -> \'/home/vagrant/.ssh/known_hosts\'\r\ndebug3: expanded UserKnownHostsFile \'~/.ssh/known_hosts2\' -> \'/home/vagrant/.ssh/known_hosts2\'\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket "/home/vagrant/.ansible/cp/64d95e4092" does not exist\r\ndebug3: ssh_connect_direct: entering\r\ndebug1: Connecting to 192.168.201.6 [192.168.201.6] port 22.\r\ndebug3: set_sock_tos: set socket 3 IP_TOS 0x10\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: fd 3 clearing O_NONBLOCK\r\ndebug1: Connection established.\r\ndebug3: timeout: 9999 ms remain after connect\r\ndebug1: identity file /home/vagrant/.private_key type -1\r\ndebug1: identity file /home/vagrant/.private_key-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.6\r\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3ubuntu0.1\r\ndebug1: compat_banner: match: OpenSSH_8.9p1 Ubuntu-3ubuntu0.1 pat OpenSSH* compat 0x04000000\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: Authenticating to 192.168.201.6:22 as \'vagrant\'\r\ndebug3: record_hostkey: found key type ED25519 in file /home/vagrant/.ssh/known_hosts:1\r\ndebug3: record_hostkey: found key type RSA in file /home/vagrant/.ssh/known_hosts:2\r\ndebug3: record_hostkey: found key type ECDSA in file /home/vagrant/.ssh/known_hosts:3\r\ndebug3: load_hostkeys_file: loaded 3 keys from 192.168.201.6\r\ndebug1: load_hostkeys: fopen /home/vagrant/.ssh/known_hosts2: No such file or directory\r\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\r\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\r\ndebug3: order_hostkeyalgs: have matching best-preference key type ssh-ed25519-cert-v01@openssh.com, using HostkeyAlgorithms verbatim\r\ndebug3: send packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT sent\r\ndebug3: receive packet: type 20\r\ndebug1: SSH2_MSG_KEXINIT received\r\ndebug2: local client KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,sntrup761x25519-sha512@openssh.com,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c,kex-strict-c-v00@openssh.com\r\ndebug2: host key algorithms: ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: zlib@openssh.com,zlib,none\r\ndebug2: compression stoc: zlib@openssh.com,zlib,none\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug2: peer server KEXINIT proposal\r\ndebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,sntrup761x25519-sha512@openssh.com,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256\r\ndebug2: host key algorithms: rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519\r\ndebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\r\ndebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\r\ndebug2: compression ctos: none,zlib@openssh.com\r\ndebug2: compression stoc: none,zlib@openssh.com\r\ndebug2: languages ctos: \r\ndebug2: languages stoc: \r\ndebug2: first_kex_follows 0 \r\ndebug2: reserved 0 \r\ndebug1: kex: algorithm: curve25519-sha256\r\ndebug1: kex: host key algorithm: ssh-ed25519\r\ndebug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: zlib@openssh.com\r\ndebug3: send packet: type 30\r\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\r\ndebug3: receive packet: type 31\r\ndebug1: SSH2_MSG_KEX_ECDH_REPLY received\r\ndebug1: Server host key: ssh-ed25519 SHA256:/dNy54ahjBXjQyq1hNMk0CGMTctKCW6wiF8iplXJFfc\r\ndebug3: record_hostkey: found key type ED25519 in file /home/vagrant/.ssh/known_hosts:1\r\ndebug3: record_hostkey: found key type RSA in file /home/vagrant/.ssh/known_hosts:2\r\ndebug3: record_hostkey: found key type ECDSA in file /home/vagrant/.ssh/known_hosts:3\r\ndebug3: load_hostkeys_file: loaded 3 keys from 192.168.201.6\r\ndebug1: load_hostkeys: fopen /home/vagrant/.ssh/known_hosts2: No such file or directory\r\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\r\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\r\ndebug1: Host \'192.168.201.6\' is known and matches the ED25519 host key.\r\ndebug1: Found key in /home/vagrant/.ssh/known_hosts:1\r\ndebug3: send packet: type 21\r\ndebug2: ssh_set_newkeys: mode 1\r\ndebug1: rekey out after 134217728 blocks\r\ndebug1: SSH2_MSG_NEWKEYS sent\r\ndebug1: expecting SSH2_MSG_NEWKEYS\r\ndebug3: receive packet: type 21\r\ndebug1: SSH2_MSG_NEWKEYS received\r\ndebug2: ssh_set_newkeys: mode 0\r\ndebug1: rekey in after 134217728 blocks\r\ndebug1: Will attempt key: /home/vagrant/.private_key  explicit\r\ndebug2: pubkey_prepare: done\r\ndebug3: send packet: type 5\r\ndebug3: receive packet: type 7\r\ndebug1: SSH2_MSG_EXT_INFO received\r\ndebug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com>\r\ndebug1: kex_input_ext_info: publickey-hostbound@openssh.com=<0>\r\ndebug3: receive packet: type 6\r\ndebug2: service_accept: ssh-userauth\r\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\r\ndebug3: send packet: type 50\r\ndebug3: receive packet: type 51\r\ndebug1: Authentications that can continue: publickey,password\r\ndebug3: start over, passed a different list publickey,password\r\ndebug3: preferred gssapi-with-mic,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_lookup publickey\r\ndebug3: remaining preferred: ,gssapi-keyex,hostbased,publickey\r\ndebug3: authmethod_is_enabled publickey\r\ndebug1: Next authentication method: publickey\r\ndebug1: Trying private key: /home/vagrant/.private_key\r\ndebug3: sign_and_send_pubkey: using publickey-hostbound-v00@openssh.com with RSA SHA256:1M4RzhMyWuFS/86uPY/ce2prh/dVTHW7iD2RhpquOZA\r\ndebug3: sign_and_send_pubkey: signing using rsa-sha2-512 SHA256:1M4RzhMyWuFS/86uPY/ce2prh/dVTHW7iD2RhpquOZA\r\ndebug3: send packet: type 50\r\ndebug2: we sent a publickey packet, wait for reply\r\ndebug3: receive packet: type 52\r\ndebug1: Enabling compression at level 6.\r\nAuthenticated to 192.168.201.6 ([192.168.201.6]:22) using "publickey".\r\ndebug1: setting up multiplex master socket\r\ndebug3: muxserver_listen: temporary control path /home/vagrant/.ansible/cp/64d95e4092.iH6asOndJQLYr5yD\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug3: fd 4 is O_NONBLOCK\r\ndebug3: fd 4 is O_NONBLOCK\r\ndebug1: channel 0: new [/home/vagrant/.ansible/cp/64d95e4092]\r\ndebug3: muxserver_listen: mux listener channel 0 fd 4\r\ndebug2: fd 3 setting TCP_NODELAY\r\ndebug3: set_sock_tos: set socket 3 IP_TOS 0x08\r\ndebug1: control_persist_detach: backgrounding master process\r\ndebug2: control_persist_detach: background process is 59083\r\ndebug2: fd 4 setting O_NONBLOCK\r\ndebug1: forking to background\r\ndebug1: Entering interactive session.\r\ndebug1: pledge: id\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug1: multiplexing control connection\r\ndebug2: fd 5 setting O_NONBLOCK\r\ndebug3: fd 5 is O_NONBLOCK\r\ndebug1: channel 1: new [mux-control]\r\ndebug3: channel_post_mux_listener: new mux channel 1 fd 5\r\ndebug3: mux_master_read_cb: channel 1: hello sent\r\ndebug2: set_control_persist_exit_time: cancel scheduled exit\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4\r\ndebug2: mux_master_process_hello: channel 1 client version 4\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4\r\ndebug2: mux_master_process_alive_check: channel 1: alive check\r\ndebug3: mux_client_request_alive: done pid = 59085\r\ndebug3: mux_client_request_session: session request sent\r\ndebug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 175\r\ndebug2: mux_master_process_new_session: channel 1: request tty 0, X 0, agent 0, subsys 0, term "xterm-256color", cmd "/bin/sh -c \'echo ~vagrant && sleep 0\'", env 4\r\ndebug3: mux_master_process_new_session: got fds stdin 6, stdout 7, stderr 8\r\ndebug1: channel 2: new [client-session]\r\ndebug2: mux_master_process_new_session: channel_new: 2 linked to control channel 1\r\ndebug2: channel 2: send open\r\ndebug3: send packet: type 90\r\ndebug3: receive packet: type 80\r\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\r\ndebug3: client_input_hostkeys: received RSA key SHA256:+Iwn7yIIeBNq2ZA8/0oW6CN+ARFIO6bKlOWoIkZVC94\r\ndebug3: client_input_hostkeys: received ECDSA key SHA256:JwIBYzye4ywTzHnQEfA45Qq7zWvuivO7m9QJhc1XsSI\r\ndebug3: client_input_hostkeys: received ED25519 key SHA256:/dNy54ahjBXjQyq1hNMk0CGMTctKCW6wiF8iplXJFfc\r\ndebug1: client_input_hostkeys: searching /home/vagrant/.ssh/known_hosts for 192.168.201.6 / (none)\r\ndebug3: hostkeys_foreach: reading file "/home/vagrant/.ssh/known_hosts"\r\ndebug3: hostkeys_find: found ssh-ed25519 key at /home/vagrant/.ssh/known_hosts:1\r\ndebug3: hostkeys_find: found ssh-rsa key at /home/vagrant/.ssh/known_hosts:2\r\ndebug3: hostkeys_find: found ecdsa-sha2-nistp256 key at /home/vagrant/.ssh/known_hosts:3\r\ndebug3: hostkeys_find: found ssh-ed25519 key under different name/addr at /home/vagrant/.ssh/known_hosts:4\r\ndebug1: client_input_hostkeys: searching /home/vagrant/.ssh/known_hosts2 for 192.168.201.6 / (none)\r\ndebug1: client_input_hostkeys: hostkeys file /home/vagrant/.ssh/known_hosts2 does not exist\r\ndebug3: client_input_hostkeys: 3 server keys: 0 new, 3 retained, 0 incomplete match. 0 to remove\r\ndebug1: client_input_hostkeys: no new or deprecated keys from server\r\ndebug3: receive packet: type 4\r\ndebug1: Remote: /home/vagrant/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\r\ndebug3: receive packet: type 91\r\ndebug2: channel_input_open_confirmation: channel 2: callback start\r\ndebug2: client_session2_setup: id 2\r\ndebug1: Sending environment.\r\ndebug1: channel 2: setting env LANG = "C.UTF-8"\r\ndebug2: channel 2: request env confirm 0\r\ndebug3: send packet: type 98\r\ndebug1: channel 2: setting env LC_TERMINAL = "iTerm2"\r\ndebug2: channel 2: request env confirm 0\r\ndebug3: send packet: type 98\r\ndebug1: channel 2: setting env LC_TERMINAL_VERSION = "3.4.22"\r\ndebug2: channel 2: request env confirm 0\r\ndebug3: send packet: type 98\r\ndebug1: channel 2: setting env LC_CTYPE = "C.UTF-8"\r\ndebug2: channel 2: request env confirm 0\r\ndebug3: send packet: type 98\r\ndebug1: Sending command: /bin/sh -c \'echo ~vagrant && sleep 0\'\r\ndebug2: channel 2: request exec confirm 1\r\ndebug3: send packet: type 98\r\ndebug3: mux_session_confirm: sending success reply\r\ndebug2: channel_input_open_confirmation: channel 2: callback done\r\ndebug2: channel 2: open confirm rwindow 0 rmax 32768\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: channel 2: rcvd adjust 2097152\r\ndebug3: receive packet: type 99\r\ndebug2: channel_input_status_confirm: type 99 id 2\r\ndebug2: exec request accepted on channel 2\r\ndebug3: receive packet: type 96\r\ndebug2: channel 2: rcvd eof\r\ndebug2: channel 2: output open -> drain\r\ndebug3: receive packet: type 98\r\ndebug1: client_input_channel_req: channel 2 rtype exit-status reply 0\r\ndebug3: mux_exit_message: channel 2: exit message, exitval 0\r\ndebug3: receive packet: type 98\r\ndebug1: client_input_channel_req: channel 2 rtype eow@openssh.com reply 0\r\ndebug2: channel 2: rcvd eow\r\ndebug2: chan_shutdown_read: channel 2: (i0 o1 sock -1 wfd 6 efd 8 [write])\r\ndebug2: channel 2: input open -> closed\r\ndebug3: receive packet: type 97\r\ndebug2: channel 2: rcvd close\r\ndebug3: channel 2: will not send data after close\r\ndebug3: channel 2: will not send data after close\r\ndebug2: channel 2: obuf empty\r\ndebug2: chan_shutdown_write: channel 2: (i3 o1 sock -1 wfd 7 efd 8 [write])\r\ndebug2: channel 2: output drain -> closed\r\ndebug2: channel 2: send close\r\ndebug3: send packet: type 97\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: gc: notify user\r\ndebug3: mux_master_session_cleanup_cb: entering for channel 2\r\ndebug2: channel 1: rcvd close\r\ndebug2: channel 1: output open -> drain\r\ndebug2: chan_shutdown_read: channel 1: (i0 o1 sock 5 wfd 5 efd -1 [closed])\r\ndebug2: channel 1: input open -> closed\r\ndebug2: channel 2: gc: user detached\r\ndebug2: channel 2: is dead\r\ndebug2: channel 2: garbage collecting\r\ndebug1: channel 2: free: client-session, nchannels 3\r\ndebug3: channel 2: status: The following connections are open:\r\n  #1 mux-control (t16 nr0 i3/0 o1/0 e[closed]/0 fd 5/5/-1 sock 5 cc -1 io 0x01/0x02)\r\n  #2 client-session (t4 r0 i3/0 o3/0 e[write]/0 fd -1/-1/8 sock -1 cc -1 io 0x00/0x00)\r\n\r\ndebug2: channel 1: obuf empty\r\ndebug2: chan_shutdown_write: channel 1: (i3 o1 sock 5 wfd 5 efd -1 [closed])\r\ndebug2: channel 1: output drain -> closed\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: gc: notify user\r\ndebug3: mux_master_control_cleanup_cb: entering for channel 1\r\ndebug2: channel 1: gc: user detached\r\ndebug2: channel 1: is dead (local)\r\ndebug2: channel 1: garbage collecting\r\ndebug1: channel 1: free: mux-control, nchannels 2\r\ndebug3: channel 1: status: The following connections are open:\r\n  #1 mux-control (t16 nr0 i3/0 o3/0 e[closed]/0 fd 5/5/-1 sock 5 cc -1 io 0x00/0x01)\r\n\r\ndebug2: set_control_persist_exit_time: schedule exit in 60 seconds\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n')
+2024-02-08 04:40:17,372 p=59076 u=vagrant n=ansible | <192.168.201.6> ESTABLISH SSH CONNECTION FOR USER: vagrant
+2024-02-08 04:40:17,372 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+2024-02-08 04:40:17,372 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_PRIVATE_KEY_FILE/private_key_file/ansible_ssh_private_key_file set: (-o)(IdentityFile="/home/vagrant/.private_key")
+2024-02-08 04:40:17,373 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible_password/ansible_ssh_password not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+2024-02-08 04:40:17,374 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User="vagrant")
+2024-02-08 04:40:17,374 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+2024-02-08 04:40:17,374 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_common_args: ()
+2024-02-08 04:40:17,374 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_extra_args: ()
+2024-02-08 04:40:17,374 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath="/home/vagrant/.ansible/cp/64d95e4092")
+2024-02-08 04:40:17,374 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/vagrant/.private_key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="vagrant"' -o ConnectTimeout=10 -o 'ControlPath="/home/vagrant/.ansible/cp/64d95e4092"' 192.168.201.6 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/vagrant/.ansible/tmp `"&& mkdir "` echo /home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797 `" && echo ansible-tmp-1707367217.367563-59080-45227788694797="` echo /home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797 `" ) && sleep 0'"'"''
+2024-02-08 04:40:17,391 p=59076 u=vagrant n=ansible | <192.168.201.6> (0, b'ansible-tmp-1707367217.367563-59080-45227788694797=/home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797\n', b"OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 192.168.201.6 is address\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/vagrant/.ssh/known_hosts'\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/vagrant/.ssh/known_hosts2'\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 59085\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n")
+2024-02-08 04:40:17,517 p=59076 u=vagrant n=ansible | Including module_utils file ansible/__init__.py
+2024-02-08 04:40:17,517 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/__init__.py
+2024-02-08 04:40:17,518 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/_text.py
+2024-02-08 04:40:17,520 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/basic.py
+2024-02-08 04:40:17,520 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/_json_compat.py
+2024-02-08 04:40:17,521 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/__init__.py
+2024-02-08 04:40:17,521 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/_utils.py
+2024-02-08 04:40:17,521 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/arg_spec.py
+2024-02-08 04:40:17,522 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/file.py
+2024-02-08 04:40:17,522 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/locale.py
+2024-02-08 04:40:17,523 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/parameters.py
+2024-02-08 04:40:17,524 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/collections.py
+2024-02-08 04:40:17,524 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/process.py
+2024-02-08 04:40:17,525 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/sys_info.py
+2024-02-08 04:40:17,525 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/text/converters.py
+2024-02-08 04:40:17,525 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/text/__init__.py
+2024-02-08 04:40:17,526 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/text/formatters.py
+2024-02-08 04:40:17,526 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/validation.py
+2024-02-08 04:40:17,527 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/common/warnings.py
+2024-02-08 04:40:17,527 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/compat/selectors.py
+2024-02-08 04:40:17,527 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/compat/__init__.py
+2024-02-08 04:40:17,528 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/compat/_selectors2.py
+2024-02-08 04:40:17,528 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/compat/selinux.py
+2024-02-08 04:40:17,529 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/distro/__init__.py
+2024-02-08 04:40:17,530 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/distro/_distro.py
+2024-02-08 04:40:17,530 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/errors.py
+2024-02-08 04:40:17,531 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/ansible_collector.py
+2024-02-08 04:40:17,531 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/compat/typing.py
+2024-02-08 04:40:17,531 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/__init__.py
+2024-02-08 04:40:17,532 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/collector.py
+2024-02-08 04:40:17,532 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/compat.py
+2024-02-08 04:40:17,533 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/default_collectors.py
+2024-02-08 04:40:17,533 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/aix.py
+2024-02-08 04:40:17,534 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/__init__.py
+2024-02-08 04:40:17,534 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/base.py
+2024-02-08 04:40:17,534 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/darwin.py
+2024-02-08 04:40:17,534 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/dragonfly.py
+2024-02-08 04:40:17,535 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/freebsd.py
+2024-02-08 04:40:17,535 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/hpux.py
+2024-02-08 04:40:17,535 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/hurd.py
+2024-02-08 04:40:17,536 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/linux.py
+2024-02-08 04:40:17,536 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/netbsd.py
+2024-02-08 04:40:17,537 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/openbsd.py
+2024-02-08 04:40:17,537 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/hardware/sunos.py
+2024-02-08 04:40:17,537 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/namespace.py
+2024-02-08 04:40:17,538 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/aix.py
+2024-02-08 04:40:17,538 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/__init__.py
+2024-02-08 04:40:17,538 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/base.py
+2024-02-08 04:40:17,538 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/darwin.py
+2024-02-08 04:40:17,538 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/dragonfly.py
+2024-02-08 04:40:17,538 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/fc_wwn.py
+2024-02-08 04:40:17,539 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/freebsd.py
+2024-02-08 04:40:17,539 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/generic_bsd.py
+2024-02-08 04:40:17,539 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/hpux.py
+2024-02-08 04:40:17,539 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/hurd.py
+2024-02-08 04:40:17,540 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/iscsi.py
+2024-02-08 04:40:17,540 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/linux.py
+2024-02-08 04:40:17,540 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/netbsd.py
+2024-02-08 04:40:17,541 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/nvme.py
+2024-02-08 04:40:17,541 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/openbsd.py
+2024-02-08 04:40:17,541 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/network/sunos.py
+2024-02-08 04:40:17,541 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/other/facter.py
+2024-02-08 04:40:17,541 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/other/__init__.py
+2024-02-08 04:40:17,541 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/other/ohai.py
+2024-02-08 04:40:17,542 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/sysctl.py
+2024-02-08 04:40:17,542 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/apparmor.py
+2024-02-08 04:40:17,542 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/__init__.py
+2024-02-08 04:40:17,542 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/caps.py
+2024-02-08 04:40:17,542 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/chroot.py
+2024-02-08 04:40:17,543 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/cmdline.py
+2024-02-08 04:40:17,543 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/date_time.py
+2024-02-08 04:40:17,544 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/distribution.py
+2024-02-08 04:40:17,544 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/dns.py
+2024-02-08 04:40:17,544 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/env.py
+2024-02-08 04:40:17,545 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/fips.py
+2024-02-08 04:40:17,545 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/loadavg.py
+2024-02-08 04:40:17,545 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/local.py
+2024-02-08 04:40:17,545 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/lsb.py
+2024-02-08 04:40:17,546 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/pkg_mgr.py
+2024-02-08 04:40:17,546 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/platform.py
+2024-02-08 04:40:17,546 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/python.py
+2024-02-08 04:40:17,546 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/selinux.py
+2024-02-08 04:40:17,546 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/service_mgr.py
+2024-02-08 04:40:17,547 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/compat/version.py
+2024-02-08 04:40:17,547 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/ssh_pub_keys.py
+2024-02-08 04:40:17,547 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/system/user.py
+2024-02-08 04:40:17,547 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/timeout.py
+2024-02-08 04:40:17,548 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/utils.py
+2024-02-08 04:40:17,548 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/base.py
+2024-02-08 04:40:17,548 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/__init__.py
+2024-02-08 04:40:17,548 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/dragonfly.py
+2024-02-08 04:40:17,548 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/freebsd.py
+2024-02-08 04:40:17,548 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/hpux.py
+2024-02-08 04:40:17,549 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/linux.py
+2024-02-08 04:40:17,549 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/netbsd.py
+2024-02-08 04:40:17,549 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/openbsd.py
+2024-02-08 04:40:17,549 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/sunos.py
+2024-02-08 04:40:17,550 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/facts/virtual/sysctl.py
+2024-02-08 04:40:17,550 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/parsing/convert_bool.py
+2024-02-08 04:40:17,550 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/parsing/__init__.py
+2024-02-08 04:40:17,550 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/pycompat24.py
+2024-02-08 04:40:17,551 p=59076 u=vagrant n=ansible | Including module_utils file ansible/module_utils/six/__init__.py
+2024-02-08 04:40:17,554 p=59076 u=vagrant n=ansible | <192.168.201.6> Attempting python interpreter discovery
+2024-02-08 04:40:17,554 p=59076 u=vagrant n=ansible | <192.168.201.6> ESTABLISH SSH CONNECTION FOR USER: vagrant
+2024-02-08 04:40:17,554 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+2024-02-08 04:40:17,554 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_PRIVATE_KEY_FILE/private_key_file/ansible_ssh_private_key_file set: (-o)(IdentityFile="/home/vagrant/.private_key")
+2024-02-08 04:40:17,554 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible_password/ansible_ssh_password not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+2024-02-08 04:40:17,555 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User="vagrant")
+2024-02-08 04:40:17,555 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+2024-02-08 04:40:17,555 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_common_args: ()
+2024-02-08 04:40:17,555 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_extra_args: ()
+2024-02-08 04:40:17,555 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath="/home/vagrant/.ansible/cp/64d95e4092")
+2024-02-08 04:40:17,555 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/vagrant/.private_key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="vagrant"' -o ConnectTimeout=10 -o 'ControlPath="/home/vagrant/.ansible/cp/64d95e4092"' 192.168.201.6 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'python3.11'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.10'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.8'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+2024-02-08 04:40:17,570 p=59076 u=vagrant n=ansible | <192.168.201.6> (0, b'PLATFORM\nLinux\nFOUND\n/usr/bin/python3.10\n/usr/bin/python3\nENDFOUND\n', b"OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 192.168.201.6 is address\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/vagrant/.ssh/known_hosts'\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/vagrant/.ssh/known_hosts2'\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 59085\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n")
+2024-02-08 04:40:17,571 p=59076 u=vagrant n=ansible | <192.168.201.6> ESTABLISH SSH CONNECTION FOR USER: vagrant
+2024-02-08 04:40:17,571 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+2024-02-08 04:40:17,571 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_PRIVATE_KEY_FILE/private_key_file/ansible_ssh_private_key_file set: (-o)(IdentityFile="/home/vagrant/.private_key")
+2024-02-08 04:40:17,571 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible_password/ansible_ssh_password not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+2024-02-08 04:40:17,571 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User="vagrant")
+2024-02-08 04:40:17,571 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+2024-02-08 04:40:17,571 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_common_args: ()
+2024-02-08 04:40:17,571 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_extra_args: ()
+2024-02-08 04:40:17,572 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath="/home/vagrant/.ansible/cp/64d95e4092")
+2024-02-08 04:40:17,572 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/vagrant/.private_key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="vagrant"' -o ConnectTimeout=10 -o 'ControlPath="/home/vagrant/.ansible/cp/64d95e4092"' 192.168.201.6 '/bin/sh -c '"'"'/usr/bin/python3.10 && sleep 0'"'"''
+2024-02-08 04:40:17,603 p=59076 u=vagrant n=ansible | <192.168.201.6> (0, b'{"platform_dist_result": [], "osrelease_content": "PRETTY_NAME=\\"Ubuntu 22.04.2 LTS\\"\\nNAME=\\"Ubuntu\\"\\nVERSION_ID=\\"22.04\\"\\nVERSION=\\"22.04.2 LTS (Jammy Jellyfish)\\"\\nVERSION_CODENAME=jammy\\nID=ubuntu\\nID_LIKE=debian\\nHOME_URL=\\"https://www.ubuntu.com/\\"\\nSUPPORT_URL=\\"https://help.ubuntu.com/\\"\\nBUG_REPORT_URL=\\"https://bugs.launchpad.net/ubuntu/\\"\\nPRIVACY_POLICY_URL=\\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\\"\\nUBUNTU_CODENAME=jammy\\n"}\n', b"OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 192.168.201.6 is address\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/vagrant/.ssh/known_hosts'\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/vagrant/.ssh/known_hosts2'\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 59085\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n")
+2024-02-08 04:40:17,604 p=59076 u=vagrant n=ansible | Using module file /usr/lib/python3/dist-packages/ansible/modules/setup.py
+2024-02-08 04:40:17,604 p=59076 u=vagrant n=ansible | <192.168.201.6> PUT /home/vagrant/.ansible/tmp/ansible-local-59076h94s2jqp/tmpnanlzznk TO /home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/AnsiballZ_setup.py
+2024-02-08 04:40:17,604 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+2024-02-08 04:40:17,604 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_PRIVATE_KEY_FILE/private_key_file/ansible_ssh_private_key_file set: (-o)(IdentityFile="/home/vagrant/.private_key")
+2024-02-08 04:40:17,605 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible_password/ansible_ssh_password not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+2024-02-08 04:40:17,605 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User="vagrant")
+2024-02-08 04:40:17,605 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+2024-02-08 04:40:17,605 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_common_args: ()
+2024-02-08 04:40:17,605 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set sftp_extra_args: ()
+2024-02-08 04:40:17,605 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath="/home/vagrant/.ansible/cp/64d95e4092")
+2024-02-08 04:40:17,605 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: EXEC sftp -b - -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/vagrant/.private_key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="vagrant"' -o ConnectTimeout=10 -o 'ControlPath="/home/vagrant/.ansible/cp/64d95e4092"' '[192.168.201.6]'
+2024-02-08 04:40:17,646 p=59076 u=vagrant n=ansible | <192.168.201.6> (0, b'sftp> put /home/vagrant/.ansible/tmp/ansible-local-59076h94s2jqp/tmpnanlzznk /home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/AnsiballZ_setup.py\n', b'OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 192.168.201.6 is address\r\ndebug3: expanded UserKnownHostsFile \'~/.ssh/known_hosts\' -> \'/home/vagrant/.ssh/known_hosts\'\r\ndebug3: expanded UserKnownHostsFile \'~/.ssh/known_hosts2\' -> \'/home/vagrant/.ssh/known_hosts2\'\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 59085\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug2: Remote version: 3\r\ndebug2: Server supports extension "posix-rename@openssh.com" revision 1\r\ndebug2: Server supports extension "statvfs@openssh.com" revision 2\r\ndebug2: Server supports extension "fstatvfs@openssh.com" revision 2\r\ndebug2: Server supports extension "hardlink@openssh.com" revision 1\r\ndebug2: Server supports extension "fsync@openssh.com" revision 1\r\ndebug2: Server supports extension "lsetstat@openssh.com" revision 1\r\ndebug2: Server supports extension "limits@openssh.com" revision 1\r\ndebug2: Server supports extension "expand-path@openssh.com" revision 1\r\ndebug3: Sent message limits@openssh.com I:1\r\ndebug3: Received limits reply T:201 I:1\r\ndebug1: Using server download size 261120\r\ndebug1: Using server upload size 261120\r\ndebug1: Server handle limit 1019; using 64\r\ndebug2: Sending SSH2_FXP_REALPATH "."\r\ndebug3: Sent message fd 3 T:16 I:2\r\ndebug3: SSH2_FXP_REALPATH . -> /home/vagrant\r\ndebug3: Looking up /home/vagrant/.ansible/tmp/ansible-local-59076h94s2jqp/tmpnanlzznk\r\ndebug2: Sending SSH2_FXP_STAT "/home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/AnsiballZ_setup.py"\r\ndebug3: Sent message fd 3 T:17 I:3\r\ndebug1: stat remote: No such file or directory\r\ndebug2: do_upload: upload local "/home/vagrant/.ansible/tmp/ansible-local-59076h94s2jqp/tmpnanlzznk" to remote "/home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/AnsiballZ_setup.py"\r\ndebug2: Sending SSH2_FXP_OPEN "/home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/AnsiballZ_setup.py"\r\ndebug3: Sent dest message SSH2_FXP_OPEN I:4 P:/home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/AnsiballZ_setup.py M:0x001a\r\ndebug3: Sent message SSH2_FXP_WRITE I:6 O:0 S:261120\r\ndebug3: SSH2_FXP_STATUS 0\r\ndebug3: In write loop, ack for 6 261120 bytes at 0\r\ndebug3: Sent message SSH2_FXP_WRITE I:7 O:261120 S:36223\r\ndebug3: SSH2_FXP_STATUS 0\r\ndebug3: In write loop, ack for 7 36223 bytes at 261120\r\ndebug3: Sent message SSH2_FXP_CLOSE I:5\r\ndebug3: SSH2_FXP_STATUS 0\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n')
+2024-02-08 04:40:17,646 p=59076 u=vagrant n=ansible | <192.168.201.6> ESTABLISH SSH CONNECTION FOR USER: vagrant
+2024-02-08 04:40:17,646 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+2024-02-08 04:40:17,647 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_PRIVATE_KEY_FILE/private_key_file/ansible_ssh_private_key_file set: (-o)(IdentityFile="/home/vagrant/.private_key")
+2024-02-08 04:40:17,647 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible_password/ansible_ssh_password not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+2024-02-08 04:40:17,647 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User="vagrant")
+2024-02-08 04:40:17,647 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+2024-02-08 04:40:17,647 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_common_args: ()
+2024-02-08 04:40:17,647 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_extra_args: ()
+2024-02-08 04:40:17,647 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath="/home/vagrant/.ansible/cp/64d95e4092")
+2024-02-08 04:40:17,647 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/vagrant/.private_key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="vagrant"' -o ConnectTimeout=10 -o 'ControlPath="/home/vagrant/.ansible/cp/64d95e4092"' 192.168.201.6 '/bin/sh -c '"'"'chmod u+x /home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/ /home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/AnsiballZ_setup.py && sleep 0'"'"''
+2024-02-08 04:40:17,660 p=59076 u=vagrant n=ansible | <192.168.201.6> (0, b'', b"OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 192.168.201.6 is address\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/vagrant/.ssh/known_hosts'\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/vagrant/.ssh/known_hosts2'\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 59085\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n")
+2024-02-08 04:40:17,660 p=59076 u=vagrant n=ansible | <192.168.201.6> ESTABLISH SSH CONNECTION FOR USER: vagrant
+2024-02-08 04:40:17,660 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+2024-02-08 04:40:17,660 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_PRIVATE_KEY_FILE/private_key_file/ansible_ssh_private_key_file set: (-o)(IdentityFile="/home/vagrant/.private_key")
+2024-02-08 04:40:17,660 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible_password/ansible_ssh_password not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+2024-02-08 04:40:17,660 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User="vagrant")
+2024-02-08 04:40:17,660 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+2024-02-08 04:40:17,661 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_common_args: ()
+2024-02-08 04:40:17,661 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_extra_args: ()
+2024-02-08 04:40:17,661 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath="/home/vagrant/.ansible/cp/64d95e4092")
+2024-02-08 04:40:17,661 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/vagrant/.private_key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="vagrant"' -o ConnectTimeout=10 -o 'ControlPath="/home/vagrant/.ansible/cp/64d95e4092"' -tt 192.168.201.6 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-pqzexwjttgfaqwdybgnfqrxndzrxhsdc ; /usr/bin/python3 /home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/AnsiballZ_setup.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+2024-02-08 04:40:29,695 p=59076 u=vagrant n=ansible | <192.168.201.6> ESTABLISH SSH CONNECTION FOR USER: vagrant
+2024-02-08 04:40:29,696 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible.cfg set ssh_args: (-C)(-o)(ControlMaster=auto)(-o)(ControlPersist=60s)
+2024-02-08 04:40:29,696 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_PRIVATE_KEY_FILE/private_key_file/ansible_ssh_private_key_file set: (-o)(IdentityFile="/home/vagrant/.private_key")
+2024-02-08 04:40:29,697 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ansible_password/ansible_ssh_password not set: (-o)(KbdInteractiveAuthentication=no)(-o)(PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey)(-o)(PasswordAuthentication=no)
+2024-02-08 04:40:29,697 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_REMOTE_USER/remote_user/ansible_user/user/-u set: (-o)(User="vagrant")
+2024-02-08 04:40:29,697 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: ANSIBLE_TIMEOUT/timeout set: (-o)(ConnectTimeout=10)
+2024-02-08 04:40:29,697 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_common_args: ()
+2024-02-08 04:40:29,698 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: Set ssh_extra_args: ()
+2024-02-08 04:40:29,699 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: found only ControlPersist; added ControlPath: (-o)(ControlPath="/home/vagrant/.ansible/cp/64d95e4092")
+2024-02-08 04:40:29,700 p=59076 u=vagrant n=ansible | <192.168.201.6> SSH: EXEC ssh -vvv -C -o ControlMaster=auto -o ControlPersist=60s -o 'IdentityFile="/home/vagrant/.private_key"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="vagrant"' -o ConnectTimeout=10 -o 'ControlPath="/home/vagrant/.ansible/cp/64d95e4092"' 192.168.201.6 '/bin/sh -c '"'"'rm -f -r /home/vagrant/.ansible/tmp/ansible-tmp-1707367217.367563-59080-45227788694797/ > /dev/null 2>&1 && sleep 0'"'"''
+2024-02-08 04:40:29,743 p=59076 u=vagrant n=ansible | <192.168.201.6> (0, b'', b"OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\r\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 192.168.201.6 is address\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/vagrant/.ssh/known_hosts'\r\ndebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/vagrant/.ssh/known_hosts2'\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 59085\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 0\r\n")
+2024-02-08 04:40:29,748 p=59076 u=vagrant n=ansible | fatal: [192.168.201.6]: FAILED! => {
+    "msg": "Timeout (12s) waiting for privilege escalation prompt: "
+}
+2024-02-08 04:40:29,755 p=59076 u=vagrant n=ansible | PLAY RECAP *********************************************************************************************************************************************************
+2024-02-08 04:40:29,755 p=59076 u=vagrant n=ansible | 192.168.201.6              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-02-08 04:42:54,088 p=59103 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next major release
+of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system. If this would cause problems for you, please provide us feedback at
+https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 04:43:14,156 p=59103 u=vagrant n=ansible |  [ERROR]: User interrupted execution
+
+2024-02-08 04:43:53,840 p=59117 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next major release
+of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system. If this would cause problems for you, please provide us feedback at
+https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 04:44:19,519 p=59117 u=vagrant n=ansible | web1 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname web1: Temporary failure in name resolution",
+    "unreachable": true
+}
+2024-02-08 04:44:19,524 p=59117 u=vagrant n=ansible | db1 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname db1: Temporary failure in name resolution",
+    "unreachable": true
+}
+2024-02-08 04:46:42,077 p=59168 u=vagrant n=ansible | [WARNING]:  * Failed to parse /home/vagrant/machine_list.py with script plugin: Inventory script (/home/vagrant/machine_list.py) had an
+execution error: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next major
+release of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better interoperability with other
+libraries) but was not found to be installed on your system. If this would cause problems for you, please provide us feedback at
+https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd Traceback (most recent call last):   File
+"/home/vagrant/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc     return
+self._engine.get_loc(casted_key)   File "index.pyx", line 153, in pandas._libs.index.IndexEngine.get_loc   File "index.pyx", line 182, in
+pandas._libs.index.IndexEngine.get_loc   File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in
+pandas._libs.hashtable.PyObjectHashTable.get_item   File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in
+pandas._libs.hashtable.PyObjectHashTable.get_item KeyError: 'ip'  The above exception was the direct cause of the following exception:
+Traceback (most recent call last):   File "/home/vagrant/machine_list.py", line 24, in <module>     get_inventory()   File
+"/home/vagrant/machine_list.py", line 14, in get_inventory     ip = row['ip']   File "/home/vagrant/.local/lib/python3.10/site-
+packages/pandas/core/series.py", line 1111, in __getitem__     return self._get_value(key)   File "/home/vagrant/.local/lib/python3.10/site-
+packages/pandas/core/series.py", line 1227, in _get_value     loc = self.index.get_loc(label)   File
+"/home/vagrant/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3809, in get_loc     raise KeyError(key) from err
+KeyError: 'ip'
+
+2024-02-08 04:46:42,078 p=59168 u=vagrant n=ansible | [WARNING]: Unable to parse /home/vagrant/machine_list.py as an inventory source
+
+2024-02-08 04:46:42,078 p=59168 u=vagrant n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-02-08 04:46:42,082 p=59168 u=vagrant n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2024-02-08 04:47:06,736 p=59175 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next major release
+of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system. If this would cause problems for you, please provide us feedback at
+https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 04:47:07,498 p=59175 u=vagrant n=ansible | 192.168.201.5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: vagrant@192.168.201.5: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2024-02-08 04:47:07,505 p=59175 u=vagrant n=ansible | 192.168.201.6 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: vagrant@192.168.201.6: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2024-02-08 04:51:29,554 p=59197 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next major release
+of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system. If this would cause problems for you, please provide us feedback at
+https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 04:51:30,311 p=59197 u=vagrant n=ansible | 192.168.201.5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: vagrant@192.168.201.5: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2024-02-08 04:51:30,317 p=59197 u=vagrant n=ansible | 192.168.201.6 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: vagrant@192.168.201.6: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2024-02-08 04:52:23,620 p=59213 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required dependency of pandas in the next major release
+of pandas (pandas 3.0), (to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system. If this would cause problems for you, please provide us feedback at
+https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 04:52:25,122 p=59213 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 04:52:25,202 p=59213 u=vagrant n=ansible | 192.168.201.5 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 05:01:59,486 p=59320 u=vagrant n=ansible |  [ERROR]: /home/vagrant/machine_list.py:3: DeprecationWarning:  Pyarrow will become a required
+dependency of pandas in the next major release of pandas (pandas 3.0), (to allow more performant data
+types, such as the Arrow string type, and better interoperability with other libraries) but was not
+found to be installed on your system. If this would cause problems for you, please provide us
+feedback at https://github.com/pandas-dev/pandas/issues/54466            import pandas as pd
+
+2024-02-08 05:02:00,959 p=59320 u=vagrant n=ansible | 192.168.201.5 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 05:02:01,019 p=59320 u=vagrant n=ansible | 192.168.201.6 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-02-08 06:03:21,744 p=59506 u=vagrant n=ansible | [WARNING]: Unable to parse /home/vagrant/inventory_dev as an inventory source
+
+2024-02-08 06:03:21,744 p=59506 u=vagrant n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-02-08 06:03:21,748 p=59506 u=vagrant n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not
+match 'all'
+
+2024-02-08 06:03:21,748 p=59506 u=vagrant n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: web
+
+2024-02-08 06:03:28,349 p=59511 u=vagrant n=ansible | [WARNING]: Unable to parse /home/vagrant/inventory_dev as an inventory source
+
+2024-02-08 06:03:28,350 p=59511 u=vagrant n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-02-08 06:03:28,352 p=59511 u=vagrant n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not
+match 'all'
+

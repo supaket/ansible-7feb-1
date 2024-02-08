@@ -1,0 +1,6 @@
+[defaults]
+log_path=/home/vagrant/run.log
+
+[inventory]
+enable_plugins=script
+script_dir=/home/vagrant

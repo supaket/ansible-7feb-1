@@ -1,0 +1,16 @@
+---
+- name: Test templates
+  hosts: all
+  vars:
+    fav_color: blue
+    age: 16
+    voting_center: center1
+    fruits:
+      - banana
+      - mango
+
+  tasks:
+  - name: template task
+    template:
+      src: /home/vagrant/template/templates/test.conf.j2
+      dest: /tmp/test.conf

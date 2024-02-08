@@ -1,0 +1,40 @@
+- name: Provision nginx web server
+  hosts: all
+  gather_facts: yes
+  become: yes
+  vars:
+    nginx_custom_directory: /home/vagrant/nginx
+    web_server_port: 80
+  tasks:
+  - name: "Install Nginx to version"
+    ansible.builtin.apt:
+      name: "nginx"
+      state: present
+
+  - name: Copy the Nginx configuration file to the host
+    template:
+      src: nginx.conf.j2
+      dest: /etc/nginx/sites-available/default
+  
+  - name: Create link to the new config to enable it
+    file:
+      dest: /etc/nginx/sites-enabled/default
+      src: /etc/nginx/sites-available/default
+      state: link
+
+
+  - name: Create Nginx directory
+    ansible.builtin.file:
+      path: "{{ nginx_custom_directory }}"
+      state: directory
+
+
+  - name: Copy index.html to the Nginx directory
+    copy:
+      src: index.html
+      dest: "{{ nginx_custom_directory }}/index.html"
+
+  - name: Restart the Nginx service
+    service:
+      name: nginx
+      state: restarted
