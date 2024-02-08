@@ -8,3 +8,5 @@
 .sudo_as_admin_successful
 .viminfo
 .wget-hsts
+.local/
+.python_history
