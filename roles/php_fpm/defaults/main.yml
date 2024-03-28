@@ -1,0 +1,53 @@
+---
+# PHP installed packages
+php_pkgs_1604:
+  - php
+  - php-common
+  - php-cli
+  - php-curl
+  - php-enchant
+  - php-fpm
+  - php-gd
+  - php-intl
+  - php-horde-idna
+  - php-json
+  - php-memcached
+  - php-mbstring
+  - php-mcrypt
+  - php-mysql
+  - php-opcache
+  - php-pear
+  - libphp-phpmailer
+  #- php-process
+  - php-readline
+  - libphp-simplepie
+  - php-xml
+  - php-xmlrpc
+  - php-ssh2
+
+# PHP installed packages 14.04
+php_pkgs_1404:
+  - php5
+  - php5-common
+  - php5-cli
+  - php5-curl
+  - php5-enchant
+  - php5-fpm
+  - php5-gd
+  - php5-intl
+  #- php-horde-idna
+  - php5-json
+  - php5-memcached
+  #- php-mbstring
+  - php5-mcrypt
+  - php5-mysql
+  #- php-opcache
+  - php-apc
+  - php-pear
+  - libphp-phpmailer
+  #- php-process
+  - php5-readline
+  - libphp-simplepie
+  #- php-xml
+  - php5-xmlrpc
+  - libssh2-php

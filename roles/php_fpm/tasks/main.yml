@@ -1,0 +1,44 @@
+---
+#php7
+- name: Install php-fpm packages 16.04
+  become: true
+  apt:
+    pkg             : '{{ item }}'
+    state           : present
+    update_cache    : yes
+    cache_valid_time: '{{ apt_cache_valid_time }}'
+  with_items: '{{ php_pkgs_1604 }}'
+  when: ansible_distribution_version == "16.04"
+
+- name: Disable default pool 16.04
+  become: true
+  file:
+    path : '{{ php_pool_dir }}/www.conf'
+    state: absent
+  when: ansible_distribution_version == "16.04"
+
+- name: Test if default conf is in in pool
+  stat:
+    path            : '{{ php_pool_dir }}/www.conf'
+    get_md5         : no
+    get_checksum    : no
+  register: conf_here
+  when: ansible_distribution_version == "16.04"
+  
+- debug: var=conf_here
+
+- name: Backup default conf in pool
+  become: true
+  copy:
+    src         : '{{ php_pool_dir }}/www.conf'
+    dest        : '{{ php_pool_dir }}/www.disabled'
+    remote_src  : true
+  when: conf_here.changed == "true" and conf_here.stat.exists and ansible_distribution_version == "16.04"
+  
+#- name: Ensure php starts on a fresh reboot 16.04
+#  become: true
+#  service:
+#    name    : '{{ php }}'
+#    state   : restarted
+#    enabled : yes
+#  when: ansible_distribution_version == "16.04"
