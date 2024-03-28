@@ -1,0 +1,47 @@
+# Source : https://github.com/5ak3t/ansible-postgresql
+# Source : https://github.com/ANXS/postgresql
+# Source : https://github.com/ansible/ansible-examples/blob/master/language_features/postgresql.yml
+---
+- name: Install Postgres with PostGIS
+  become: true
+  apt:
+    pkg             : '{{ item }}'
+    state           : present
+    update_cache    : yes
+    cache_valid_time: '{{ apt_cache_valid_time }}'
+  with_items: '{{ psql_pkgs }}'
+#
+- name: Ensure postgresql starts on a fresh reboot
+  become: true
+  service:
+    name    : '{{ postgresql }}'
+    state   : started
+    enabled : yes
+  register: started
+
+# useless ??
+- name: wait for postgresql restart
+  become: true
+  command: sleep 2
+  when: started.changed
+
+- name: Ensure postgis_template database exists
+  become: true
+  become_user: postgres
+  postgresql_db:
+    db      : postgis_template
+    state   : present
+
+- name: Make postgis_template a template
+  become: true
+  become_user: postgres
+  command: psql -d postgis_template -c "UPDATE pg_database SET datistemplate=true WHERE datname='postgis_template';"
+
+- name: Run the postgis SQL scripts
+  become: true
+  become_user: postgres
+  action: command psql -d postgis_template -f {{ item }}
+  with_items:
+    - /usr/share/postgresql/9.5/contrib/postgis-2.2/postgis.sql
+    - /usr/share/postgresql/9.5/contrib/postgis-2.2/spatial_ref_sys.sql
+    - /usr/share/postgresql/9.5/contrib/postgis-2.2/postgis_comments.sql

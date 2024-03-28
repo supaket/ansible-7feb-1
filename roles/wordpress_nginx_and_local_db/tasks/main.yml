@@ -1,0 +1,286 @@
+---
+# Database
+- name: Restart mysql if needed
+  become: true
+  service:
+    name    : '{{ mysql }}'
+    state   : restarted
+  tags:
+    - wordpress
+    - database
+
+- name: Create WordPress database
+  become: true
+  mysql_db:
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+    name    : '{{ wp_db_name }}'
+    state   : present
+  tags:
+    - wordpress
+    - database
+
+- name: Create WordPress database user
+  become: true
+  mysql_user:
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+    name  : '{{ wp_db_user }}'
+    password: '{{ wp_db_password }}'
+    priv  : '{{ wp_db_name }}.*:ALL'
+    host  : '{{ wp_db_host }}'
+    state : present
+  tags:
+    - wordpress
+    - database
+
+# upload backup admin and files
+- name: Check for backuped file
+  local_action: stat path='{{ wp_db_src }}'
+  register: stat_bk_db
+  tags:
+    - wordpress
+    - database
+
+- name: Upload backup files
+  become: true
+  copy:
+    src     : '{{ wp_db_src }}'
+    dest    : '~/{{ wp_db_zip }}'
+    force   : false
+  when : stat_bk_db.stat.exists
+  tags:
+    - wordpress
+    - database
+
+- name: Download database
+  become: true
+  shell: "wget -O ~/{{ wp_db_zip }} {{ wp_db_url }}"
+  #get_url:
+  #  url  : '{{ wp_db_url }}'
+  #  dest : '{{ tmp_dest }}'
+  #  force: true
+  #  validate_certs: no
+  when :  wp_db_url is defined and not stat_bk_db.stat.exists
+  tags:
+    - wordpress
+    - database
+
+- name: Restore Database
+  become: true
+  mysql_db:
+    name    : '{{ wp_db_name }}'
+    state   : import
+    target  : '~/{{ wp_db_zip }}'
+  notify: restart mysql
+  tags:
+    - wordpress
+    - database
+
+# Files
+#- name: Test if $user is here
+#  become: true
+#  user:
+#    name  : '{{ wp_user_name }}'
+#    state : present
+#  register: wp_user_here
+  
+- name: Ensure website dir exists
+  become: true
+  file:
+    path  : '{{ wp_final }}'
+    owner : '{{ wp_user_name }}'
+    group : '{{ wp_user_group }}'
+    state : directory
+  tags:
+    - wordpress
+    - files
+  
+#- name: stop process
+#  become: true
+#  service: name={{ item }} state=stopped
+#  with_items:
+#    - mysql
+#    - nginx
+#    - php7.0-fpm
+#  when: ("'{{ wp_home }}' not in '{{ wp_user_here.home }}'") and ('present' in '{{ wp_user_here.state }}')
+  
+# Files
+- name: Check for backuped file
+  local_action: stat path='{{ wp_src }}'
+  register: stat_bk_files
+  tags:
+    - wordpress
+    - files
+
+- name: Upload Wordpress files
+  become: true
+  copy:
+    src     : '{{ wp_src }}'
+    dest    : '{{ wp_zip }}'
+    force   : true
+  when : stat_bk_files.stat.exists
+  tags:
+    - wordpress
+    - files
+
+- name: Download WordPress files
+  become: true
+  shell: "wget -O ~/{{ wp_zip }} {{ wp_url }}"
+  #get_url:
+  #  url  : '{{ wp_url }}'
+  #  dest : '{{ wp_zip }}'
+  #  force: true
+  #  validate_certs: no
+  when :  wp_url is defined and not stat_bk_db.stat.exists
+  tags:
+    - wordpress
+    - files
+
+- name: Extract WP archive
+  become: true
+  unarchive:
+    src : '~/{{ wp_zip }}'
+    dest: '{{ wp_final }}'
+    remote_src: yes
+  tags:
+    - wordpress
+    - files
+
+- name: Fetch random salts for WordPress config
+  become: true
+  local_action: command curl https://api.wordpress.org/secret-key/1.1/salt/
+  register: wp_salt
+  tags:
+    - wordpress
+    - files
+
+- name: WordPress config file
+  become: true
+  template:
+    src     : '{{ wp_config_file }}'
+    dest    : '{{ wp_final }}/wp-config.php'
+    force   : true
+  tags:
+    - wordpress
+    - files
+
+- name: Change ownership of WordPress installation
+  become: true
+  file:
+    path    : '{{ wp_final }}'
+    owner   : '{{ wp_user_name }}'
+    group   : '{{ wp_user_group }}'
+    state   : directory
+    mode    : u+rwx,g+rws,o-rwx
+    recurse : yes
+  tags:
+    - wordpress
+    - files
+
+# Mount in user home
+#- name: Mount server in home user
+#  become: true
+#  mount:
+#    name    : '{{ wp_user_web }}/{{ wp_name }}'
+#    src     : '{{ wp_home }}'
+#    fstype  : auto
+#    opts    : bind
+#    passno  : 2
+#    state   : mounted
+
+# Nginx
+- name: Nginx Copy configuration for wordpress
+  become: true
+  template:
+    src : '{{ wp_nginx_src }}'
+    dest: '{{ wp_available }}'
+  notify: restart nginx
+  tags:
+    - wordpress
+    - nginx
+
+- name: Nginx Create symlink to enabled
+  become: true
+  file:
+    src  : '{{ wp_available }}'
+    dest : '{{ wp_enabled }}'
+    state: link
+  notify: restart nginx
+  tags:
+    - wordpress
+    - nginx
+
+# PHP
+- name: Php-fpm copy configuration 16.04
+  become: true
+  template:
+    src : '{{ wp_php_conf_file_source }}'
+    dest: '{{ php_pool_dir }}/{{ wp_php_conf_file_dest }}'
+  notify: restart php-fpm
+  when: ansible_distribution_version == "16.04"
+  tags:
+    - wordpress
+    - php
+
+- name: Ensure php starts on a fresh reboot 16.04
+  become: true
+  service:
+    name    : '{{ php }}'
+    state   : restarted
+    enabled : yes
+  when: ansible_distribution_version == "16.04"
+  tags:
+    - wordpress
+    - php
+
+# Backup
+- name: Ensures cron dir exists
+  become: true
+  file:
+    path  : '{{ item }}'
+    owner : '{{ wp_user_name }}'
+    group : '{{ wp_user_group }}'
+    state : directory
+  with_items:
+    - '{{ wp_bk_dir }}'
+    - '{{ wp_bk_dest_dir }}'
+    - '{{ wp_bk_logdir }}'
+  tags:
+    - wordpress
+    - backup
+  
+- name: Copy backup script in crondir and executable
+  become: true
+  template:
+    src:    '{{ wp_bk_src }}'
+    dest:   '{{ wp_bk_dest }}'
+    mode:   0754
+    owner   : '{{ cron_user }}'
+    group   : '{{ cron_grp }}'
+  tags:
+    - wordpress
+    - backup
+
+- name: Creates weekly backup cronjob
+  become: true
+  cron: minute={{ cron_min }} hour={{ cron_hour }}
+        name={{ cron_name }}
+        cron_file={{ cron_file }}
+        user={{ cron_user }}
+        job={{ cron_job }}
+  tags:
+    - wordpress
+    - backup
+    
+# Restart programs
+- name: Restart programs
+  become: true
+  service: name='{{ item }}' state=restarted
+  with_items:
+    - '{{ php }}'
+    - '{{ nginx }}'
+    - '{{ mysql }}'
+  tags:
+    - wordpress
+    - restart

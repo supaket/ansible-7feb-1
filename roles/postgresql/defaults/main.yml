@@ -1,0 +1,14 @@
+---
+# Psql packages
+psql_pkgs:
+    - software-properties-common
+    - python-pycurl
+    - python-software-properties
+    - postgresql-9.5-postgis-2.2
+    - pgadmin3
+    - postgresql-contrib
+    - gdal-bin
+    - libpq-dev
+    - python-psycopg2
+    - php-pgsql
+# Psql variables

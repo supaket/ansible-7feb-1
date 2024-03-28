@@ -1,0 +1,15 @@
+[{{ wp_name }}]
+user = {{ wp_user_name }}
+group = {{ wp_user_group }}
+listen.owner = {{ listen_owner }}
+listen.group = {{ listen_group }}
+listen = {{ wp_php_listen }}
+listen.mode = 0660
+pm = dynamic
+pm.max_children = 10
+pm.start_servers = 1
+pm.min_spare_servers = 1
+pm.max_spare_servers = 3
+pm.max_requests = 500
+chdir = {{ wp_final }}
+php_admin_value[open_basedir] = {{ wp_final }}:/tmp

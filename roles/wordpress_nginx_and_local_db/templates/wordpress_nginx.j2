@@ -1,0 +1,32 @@
+# {{ ansible_managed }}
+server {
+    listen 80;
+    listen [::]:80;
+    root {{ wp_final }} ;
+
+    client_max_body_size 64M;
+    
+    server_name {{ wp_server_name }} ;
+    
+    # Deny access to any files with a .php extension in the uploads directory
+    location ~* /(?:uploads|files)/.*\.php$ {
+        deny all;
+    }
+
+    location / {
+        index index.php index.html index.htm;
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~* \.(gif|jpg|jpeg|png|css|js)$ {
+        expires max;
+    }
+
+    location ~ \.php$ {
+#        try_files $uri =404; # double according to nginx validation
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:{{ wp_php_listen }};
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}

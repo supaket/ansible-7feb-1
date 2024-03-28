@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+"""
+Title:   WordPress backup script
+Author:  canadensys
+Date:    juin 2018
+"""
+
+import sys,os
+import tarfile
+import time
+
+############
+# Variables 
+############
+
+#--- Variables files ---#
+site_name   = "{{ wp_name }}"
+main_bk_dir = "{{ wp_bk_dir }}"
+main_wp_dir = "{{ wp_final }}"
+current_date= (time.strftime("%d-%m-%Y"))
+wp_zip_file = main_bk_dir+"/"+site_name+"_website.tar.gz"
+
+#--- Variables db ---#
+db_name     = "{{ wp_db_name }}"
+db_uname    = "{{ wp_db_user }}"
+db_password = "{{ wp_db_password }}"
+db_file     = main_bk_dir+"/"+db_name+"_database.sql"
+db_zip      = db_file+".gz"
+
+#--- Variables logfile ---#
+logfile     = "{{ wp_bk_logfile }}"
+
+#--- Variables for tests ---#
+space_default_needed = 10000
+
+############
+# Script
+############
+
+#--- Test available space ---#
+def test_available_space():
+    size = os.statvfs(main_bk_dir)
+    available_space=(size.f_bavail * size.f_frsize) / 1024
+    return available_space
+
+#--- Backup WP files ---#
+def backup_wp_files(log):
+    log.write('\tStart backup files\n')
+    os.system("tar -zcf "+wp_zip_file+' --directory="'+main_wp_dir+'" .')
+    log.write('\tEnd   backup files\n')
+
+#--- Backup sql database ---#
+def backup_wp_db(log):
+    log.write('\tStart backup database\n')
+    os.system("mysqldump -u "+db_uname+" -p"+db_password+" "+db_name+" | gzip -c > "+db_zip)
+    log.write('\tEnd   backup database\n')
+
+#--- MAIN ---# 
+def main():
+    log = open(logfile, 'w')
+    if test_available_space  > space_default_needed:
+        log.write('#####\n Start of '+current_date+' Daily Backup\n\n')
+        backup_wp_files(log)
+        backup_wp_db(log)
+        log.write('##### End of '+current_date+' Daily Backup\n\n')
+    else:
+        log.write('!!!!!\n WARNING NOT ENOUGHT SPACE for '+current_date+' Daily Backup\n!!!!!\n')
+    log.close()
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,44 @@
+---
+- name: Update apt cache
+  become: true
+  apt:
+    update_cache: yes
+    cache_valid_time: '{{ apt_cache_valid_time }}'
+  register: update_action
+ 
+- name: Install {{ nfs_server_pkg }} packages ubuntu
+  become: true
+  apt:
+    pkg: '{{ nfs_server_pkg }}'
+    state: present
+    update_cache    : yes
+    cache_valid_time: '{{ apt_cache_valid_time }}'
+
+- name : Copy export file for sharing
+  become: true
+  template:
+    src     : ./templates/exports.j2
+    dest    : /etc/exports
+
+- name: Add VM hostnames in /etc/exports
+  become: true
+  replace:
+    path    : /etc/exports
+    regexp  : "^(####)$"
+    replace : '\1\n{% if item.name == ansible_hostname or item.ip == 100 or item.ip == 200 %}#{% endif %}{{ nfs_server_path }} {{ ipLocal }}{{ item.ip }}(rw,sync,no_root_squash,no_subtree_check)'
+  with_items: '{{ vm_infos }}'
+  notify:
+    - restart nfs_server
+
+- name: Update UFW rules
+  become: true
+  ufw:
+    rule  : '{% if item.name == ansible_hostname or item.ip == 100 or item.ip == 200 %}deny{% else %}allow{% endif %}'
+    port  : 'nfs'
+    from_ip: '{{ ipLocal }}{{ item.ip }}'
+    delete: '{% if item.name == ansible_hostname or item.ip == 100 or item.ip == 200 %}yes{% else %}no{% endif %}'
+  with_items: '{{ vm_infos }}'
+  notify:
+    - reload ufw
+
+

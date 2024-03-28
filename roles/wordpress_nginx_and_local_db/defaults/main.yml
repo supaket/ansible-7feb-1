@@ -1,0 +1,47 @@
+---
+# app_infos
+app_name      : 'application_name'
+app_version   : 'application_version'
+app_c_name    : 'dedicated_name'
+app_server    : 'server_name'
+app_domain    : 'data.canadensys.net'
+app_serverIP  : '198.168.0.0'
+app_user      : 'user_4_server'
+# directories
+app_final     : '{{ app_infos["webapps"] }}/{{ app_infos["app_name"] }}'
+app_files_d   : '/directory/where/iptfiles/will/be/stored'
+# backuped
+app_bk_url_s  : 'dropbox link with dl=1'
+app_bk_files_s: '/local/files_&_admin_from_backup'
+app_bk_files_d: '/destination/files_&_admin_from_backup'
+# war
+app_gbif      : 'http://url/to/gbif/app_war_file'
+app_war       : 'app_war_file'
+app_md5_f     : 'app_md5_file'
+# patch
+app_patch_u   : 'https://url/4/app/patch'
+app_patch_d   : '/destination/app/patch'
+# tomcat
+app_webapps   : '/where/the/war/file/will/be/deploy'
+# apps:
+app_valid_time: '{{ apt_cache_valid_time }}'
+app_apps      :
+  - git
+
+# cron_infos
+cron_name    : 'Backup {{ app_infos["name"] }} (daily schedule)'
+cron_file    : '{{ app_infos["name"] }}-DailyBackups'
+cron_day     : 'days'
+cron_hour    : 'hours'
+cron_min     : 'minutes'
+cron_user    : 'user_4_backup'
+cron_job     : '/usr/bin/python {{ app_infos["cron_d"] }}/{{ bk_infos["bk_d"] }}'
+
+# bk_infos
+bk_s    : '/source/ipt_backup_script_file'
+bk_d    : '/destination/ipt_backup_script_file'
+bk_c_dir: "/directory/where/cronfiles/will/be/stored"
+bk_dir  : "/directory_4_backup/"
+bk_log_d: "/directory/where/logfiles/will/be/stored"
+bk_user : 'user_4_backup'
+bk_grp  : 'group_4_backup'

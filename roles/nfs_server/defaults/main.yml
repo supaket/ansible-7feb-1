@@ -1,0 +1,10 @@
+---
+apt_cache_valid_time: 3600
+nfs_client_pkg      : pakage
+nfs_client_path     : /data
+nfs_client_user     : user
+nfs_client_grp      : group
+nfs_client_mount_opts: 'auto,nofail,noatime,nolock,intr,tcp,actimeo=1800'
+nfs_client_mount_fstype: 'nfs'
+nfs_server_ip       : 192.168.0.0
+nfs_server_path     : /home
