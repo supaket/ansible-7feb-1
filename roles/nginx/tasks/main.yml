@@ -1,11 +1,41 @@
 ---
-- name: Install nginx
+- name: Install nginx packages
+  become: true
   apt:
-    name: nginx
-    state: present
-  notify: start nginx
+    pkg             : '{{ item }}'
+    state           : present
+    update_cache    : yes
+    cache_valid_time: '{{ apt_cache_valid_time }}'
+  with_items: '{{ nginx_pkgs }}'
 
-- name: Ensure nginx is running
+- name: Enable server_names_hash_bucket_size
+  become: true
+  lineinfile:
+    dest    : /etc/nginx/nginx.conf
+    regexp  : "server_names_hash_bucket_size"
+    line    : "        server_names_hash_bucket_size 128;"
+    state   : present
+  notify: restart nginx
+
+#- name: Delete nginx default configuration
+#  become: true
+#  file:
+#    path: '/etc/nginx/conf.d/default'
+#    state: absent
+#  notify:
+#    - restart nginx
+
+- name: Remove default nginx file from sites-enable
+  become: true
+  file:
+    path: '/etc/nginx/sites-enabled/default'
+    state: absent
+  notify:
+    - restart nginx
+
+- name: Ensure nginx starts on a fresh reboot
+  become: true
   service:
-    name: nginx
-    state: started
+    name    : '{{ nginx }}'
+    state   : started
+    enabled : yes

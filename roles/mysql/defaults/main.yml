@@ -1,0 +1,17 @@
+---
+
+apt_cache_valid_time: 3500
+# Mysql installed packages
+mysql_pkgs:
+  - aptitude
+  - mysql-server
+  - mysql-client
+  - python-mysqldb
+  - python-selinux
+  - python-semanage
+  - python-pycurl
+
+# MySQL port
+mysql_port: 3306
+mysql_root_password: password
+mysql: mysql
